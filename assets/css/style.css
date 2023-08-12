@@ -32,7 +32,9 @@ body {
 .timer {
     background-color: #f7b538;
     color: #780116;
-    padding: 40px;
+    font-family: fantasy;
+    font-size: 28px;
+    padding: 30px;
     margin-left: 5%;
     margin-top: 5%;
 }
@@ -40,9 +42,42 @@ body {
 .score {
     background-color: #f7b538;
     color: #780116;
-    padding: 40px;
+    padding: 30px;
     margin-right: 5%;
     margin-top: 5%;
+    font-family: fantasy;
+    font-size: 28px;
+}
+
+.question{
+    font-size: 40px;
+    font-family: fantasy;
+    color: #780116;
+    text-align: center;
+    background-color: #f7b538;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 75px;
+    padding: 15px;
+}
+
+.answer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+.choice {
+    background-color: #f7b538;
+    color: #780116;
+    font-family: fantasy;
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 15px;
+    width: 75%;
 }
 
 
