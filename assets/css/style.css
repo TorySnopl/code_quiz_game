@@ -1,7 +1,64 @@
+
 body {
-    background-color: #464545;
-};
+    background-color: #780116;
+}
 
 .title {
-    color: white;
+    text-align: center;
+    font-size: 75px;
+    font-family: fantasy;
+    font-weight: bolder;
+    background-image: linear-gradient(to right, #f7b538,#db7c26,#d8572a);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    margin-top: 15%;
+}
+
+.startbtn {
+    font-family: fantasy;
+    font-size: 25px;
+    color:#780116;
+    background-color: #f7b538;
+    margin-left: 47%;
+    margin-top: 100px;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.timer {
+    background-color: #f7b538;
+    color: #780116;
+    padding: 40px;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.score {
+    background-color: #f7b538;
+    color: #780116;
+    padding: 40px;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+
+
+
+.hide {
+
+    display: none;
+}
+
+
+/* Pseudo Elements */
+
+.startbtn:hover {
+    border: 2px dashed #f7b538;
+    background-color: #780116;
+    color: #f7b538;
+    cursor: grab;
 }
