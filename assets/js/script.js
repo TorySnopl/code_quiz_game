@@ -20,23 +20,23 @@ const questions = [
     c: 1},
 
     {ask: 'what tag in HTML looks at your javascript?', 
-    a: ['script', 'java', 'js', 'link'],
-    c: 1},
+    a: ['link', 'java', 'js', 'script'],
+    c: 4},
 
-    {ask: 'what symbol will you need to use to get an element by ID?', a: ['#',  '!',  '%',  '*'],
-    c: 1},
+    {ask: 'what symbol will you need to use to get an element by ID?', a: ['!',  '#',  '%',  '*'],
+    c: 2},
 
     {ask: 'What is a boolean?', 
-    a: ['true/false',  'if/else',  'and/or', 'when/where'],
-    c: 1},
+    a: ['and/or',  'if/else',  'true/false', 'when/where'],
+    c: 3},
 
     {ask: 'What is the correct syntax for a function?', 
     a: ['function name()','function = name()','function: name()','create.function.name()'],
     c:1},
 
     {ask: 'Define i <= 10', 
-    a: ['i is less than or equal to 10',  'i is always less than 10', 'is i is less than 10 make it equal to 10',  'i isnt actually less than 10' ],
-    c:1}
+    a: ['i is always less than 10',  'i is less than or equal to 10', 'is i is less than 10 make it equal to 10',  'i isnt actually less than 10' ],
+    c:2}
 ];
 
 function quizStart(){
@@ -59,9 +59,12 @@ function quizStart(){
     let randomAsk = (questions[Math.floor(Math.random() * questions.length)]);
 
     question.textContent = randomAsk.ask;
+
     let choices = randomAsk.a;
     for (i=0; i < choices.length; i++){
-        answer.textContent = choices[i];
-    }
+        answer.append(randomAsk.a)
+    };
+
+
   
    }
