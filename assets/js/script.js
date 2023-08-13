@@ -62,7 +62,7 @@ function quizStart(){
 
     let choices = randomAsk.a;
     for (i=0; i < choices.length; i++){
-        answer.append(randomAsk.a)
+        answer.textContent(choices[i]);
     };
 
 
