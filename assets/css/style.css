@@ -49,29 +49,20 @@ body {
     font-size: 28px;
 }
 
-.question{
+#theQuestion{
     font-size: 40px;
     font-family: fantasy;
     color: #780116;
     text-align: center;
     background-color: #f7b538;
-    margin-left: 5%;
-    margin-right: 5%;
     margin-top: 75px;
-    padding: 15px;
-}
-
-.answer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 0%;
     
 }
 
 
-
-.choice p {
+.question{
     background-color: #f7b538;
     color: #780116;
     font-family: fantasy;
@@ -80,9 +71,16 @@ body {
     margin-top: 15px;
     width: 75%;
     margin-left: 11%;
-
 }
 
+.result {
+    color: #f7b538;
+    font-family: fantasy;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 75px;
+    opacity: 0.45;
+}
 
 
 
@@ -101,7 +99,25 @@ body {
     cursor: grab;
 }
 
-.choice p:hover {
+#choice1:hover {
+    background-color: #780116;
+    color: #f7b538;
+    cursor: pointer;
+    border: 2px dashed #f7b538;
+}
+#choice2:hover {
+    background-color: #780116;
+    color: #f7b538;
+    cursor: pointer;
+    border: 2px dashed #f7b538;
+}
+#choice3:hover {
+    background-color: #780116;
+    color: #f7b538;
+    cursor: pointer;
+    border: 2px dashed #f7b538;
+}
+#choice4:hover {
     background-color: #780116;
     color: #f7b538;
     cursor: pointer;
