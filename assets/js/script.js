@@ -61,10 +61,6 @@ function newQuestion(){
     choiceTwo.textContent = questions[questionCount].a[1];
     choiceThree.textContent = questions[questionCount].a[2];
     choiceFour.textContent = questions[questionCount].a[3];
-
-    questionCount++;
-
-   
 };  
 
 
@@ -96,20 +92,35 @@ function quizStart(){
     }, 1000);
 
     quizBoard.addEventListener('click', function(event){
-        let userChoice = event.target.value;
-
-        console.log(userChoice);
+        let userChoice = event.target.textContent;
+        
+            console.log(userChoice)
+        
         
         if (userChoice == questions[questionCount].c){
             score ++;
             scoreEl.textContent = score;
             localStorage.setItem('score', score);
             feedback.textContent = ('You Got It!');
-            newQuestion();
+            
         } else {
             seconds --;
             feedback.textContent = ('Maybe Next Time!');
+        }
+
+        questionCount++;
+
+        if (questionCount<questions.length){
             newQuestion();
+        } else {
+            clearInterval(timerInterval);
+            quizBoard.classList.add('hide');
+            feedback.classList.add('hide')
+            timerEl.classList.add('hide');
+            scoreEl.classList.add('hide');
+            finalScreen.classList.remove('hide');
+            scoreEl.textContent = localStorage.getItem('score');
+            localStorage.setItem('name', nameInput);
         }
        
     });  
