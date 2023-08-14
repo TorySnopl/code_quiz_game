@@ -7,6 +7,7 @@ let question = document.querySelector('.question');
 let answer = document.querySelector('.choice');
 
 
+
 timerEl.classList.add('hide');
 scoreEl.classList.add('hide');
 quizBoard.classList.add('hide');
@@ -56,15 +57,34 @@ function quizStart(){
         }
     }, 1000);
 
-    let randomAsk = (questions[Math.floor(Math.random() * questions.length)]);
+};
+
+    
+let randomAsk = (questions[Math.floor(Math.random() * questions.length)]);
 
     question.textContent = randomAsk.ask;
 
-    let choices = randomAsk.a;
-    for (i=0; i < choices.length; i++){
-        answer.textContent = choices[i];
-    };
+    let userChoice = randomAsk.a;
+
+    userChoice.forEach((choice) => {
+            let options = document.createElement('p');
+            options.textContent = choice;
+            answer.append(options);
+
+        
+            options.addEventListener('click', function(){
+                if (options==randomAsk.c){
+                    scoreEl++;
+                }
+            })
+    });
+
+ 
+
+
+    
+  
 
 
   
-   }
+  
