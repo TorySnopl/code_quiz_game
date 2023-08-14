@@ -62,7 +62,7 @@ function quizStart(){
 
     let choices = randomAsk.a;
     for (i=0; i < choices.length; i++){
-        answer.textContent(choices[i]);
+        answer.textContent = choices[i];
     };
 
 
