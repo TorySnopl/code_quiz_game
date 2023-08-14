@@ -3,8 +3,12 @@ let startScreen = document.querySelector('.title');
 let timerEl = document.querySelector('.timer');
 let scoreEl = document.querySelector('.score');
 let quizBoard = document.querySelector('.quizboard');
-let question = document.querySelector('.question');
+let question = document.querySelector('#theQuestion');
 let answer = document.querySelector('.choice');
+let choiceOne = document.querySelector('#choice1');
+let choiceTwo = document.querySelector('#choice2');
+let choiceThree = document.querySelector('#choice3');
+let choiceFour = document.querySelector('#choice4');
 let feedback = document.querySelector('.result');
 let finalScreen =document.querySelector('.finalscreen');
 let score = 0;
@@ -49,39 +53,32 @@ const questions = [
 
 
 function newQuestion(){
-
     question.textContent = questions[questionCount].ask;
 
-    let userChoice = questions[questionCount].a;
+    choiceOne.textContent = questions[questionCount].a[0];
+    choiceTwo.textContent = questions[questionCount].a[1];
+    choiceThree.textContent = questions[questionCount].a[2];
+    choiceFour.textContent = questions[questionCount].a[3];
 
     questionCount++;
 
-    userChoice.forEach((choice) => {
-            let options = document.createElement('p');
-            options.textContent = choice;
-            answer.append(options);
-
+    quizBoard.addEventListener('click', function(event){
+        let userChoice = event.target.value;
         
-            options.addEventListener('click', function(){
-                if (options.innerHTML==questions[questionCount].c){
-                    score++;
-                    scoreEl.textContent = score;
-                    feedback.textContent = "Way To Go!"
-                    localStorage.setItem('score', score);
-                   
-                 } else {
-                    seconds--;
-                    feedback.textContent = "Not Quite!"
-                 }
-            newQuestion();
-            })
-            
-    });
+        if (userChoice == question[questionCount].c){
+            score ++;
+            scoreEl.textContent = score;
+            localStorage.setItem('score', score);
 
-};
+        }
+        newQuestion();
+    })
+
+};  
 
 function quizStart(){
 
+    newQuestion();
 
     startBtn.classList.add('hide');
     startScreen.classList.add('hide');
@@ -99,7 +96,7 @@ function quizStart(){
         }
     }, 1000);
 
-  
+    
 
 
 };
