@@ -82,6 +82,37 @@ body {
     opacity: 0.45;
 }
 
+.highscore {
+    font-family: fantasy;
+    font-size: 60px;
+    color: #f7b538;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.topscores {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.name {
+    max-height: 40px;
+    margin-top: 70px;
+    background-color: #f7b538;
+    color: #780116;
+    font-family: fantasy;
+    padding: 10px;
+}
+
+.finalScore {
+    font-family: fantasy;
+    font-size: 28px;
+    margin-top: 83px;
+    margin-left: 100px;
+    color: #f7b538;
+}
 
 
 .hide {
