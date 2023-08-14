@@ -11,10 +11,11 @@ let choiceThree = document.querySelector('#choice3');
 let choiceFour = document.querySelector('#choice4');
 let feedback = document.querySelector('.result');
 let finalScreen =document.querySelector('.finalscreen');
+let nameInput = document.querySelector ('.name');
 let score = 0;
 let questionCount = 0;
 
-console.log(feedback);
+
 
 timerEl.classList.add('hide');
 scoreEl.classList.add('hide');
@@ -89,11 +90,15 @@ function quizStart(){
             timerEl.classList.add('hide');
             scoreEl.classList.add('hide');
             finalScreen.classList.remove('hide');
+            scoreEl.textContent = localStorage.getItem('score');
+            localStorage.setItem('name', nameInput);
         }
     }, 1000);
 
     quizBoard.addEventListener('click', function(event){
         let userChoice = event.target.value;
+
+        console.log(userChoice);
         
         if (userChoice == questions[questionCount].c){
             score ++;
