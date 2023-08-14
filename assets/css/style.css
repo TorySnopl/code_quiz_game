@@ -71,7 +71,7 @@ body {
 
 
 
-.choice {
+.choice p {
     background-color: #f7b538;
     color: #780116;
     font-family: fantasy;
@@ -79,6 +79,8 @@ body {
     padding: 20px;
     margin-top: 15px;
     width: 75%;
+    margin-left: 11%;
+
 }
 
 
@@ -97,4 +99,11 @@ body {
     background-color: #780116;
     color: #f7b538;
     cursor: grab;
+}
+
+.choice p:hover {
+    background-color: #780116;
+    color: #f7b538;
+    cursor: pointer;
+    border: 2px dashed #f7b538;
 }
