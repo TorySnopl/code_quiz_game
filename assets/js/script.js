@@ -12,8 +12,11 @@ let choiceFour = document.querySelector('#choice4');
 let feedback = document.querySelector('.result');
 let finalScreen =document.querySelector('.finalscreen');
 let nameInput = document.querySelector ('.name');
+let finalScore = document.querySelector('.finalScore');
+
 let score = 0;
 let questionCount = 0;
+
 
 
 
@@ -65,6 +68,7 @@ function newQuestion(){
 
 
 function quizStart(){
+    
 
     newQuestion();
 
@@ -86,21 +90,20 @@ function quizStart(){
             timerEl.classList.add('hide');
             scoreEl.classList.add('hide');
             finalScreen.classList.remove('hide');
-            scoreEl.textContent = localStorage.getItem('score');
-            localStorage.setItem('name', nameInput);
         }
     }, 1000);
 
     quizBoard.addEventListener('click', function(event){
-        let userChoice = event.target.textContent;
-        
+        let userChoice = event.target.textContent.trim();
+        let correctIndex = questions[questionCount].c;
+
             console.log(userChoice)
+            console.log(correctIndex)
         
         
-        if (userChoice == questions[questionCount].c){
+        if (userChoice == questions[questionCount].a[correctIndex]){
             score ++;
             scoreEl.textContent = score;
-            localStorage.setItem('score', score);
             feedback.textContent = ('You Got It!');
             
         } else {
@@ -119,8 +122,8 @@ function quizStart(){
             timerEl.classList.add('hide');
             scoreEl.classList.add('hide');
             finalScreen.classList.remove('hide');
-            scoreEl.textContent = localStorage.getItem('score');
-            localStorage.setItem('name', nameInput);
+            finalScore.textContent = score;
+            
         }
        
     });  
