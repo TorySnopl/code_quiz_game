@@ -114,6 +114,36 @@ body {
     color: #f7b538;
 }
 
+.submit {
+    background-color: #780116;
+    color: #f7b538;
+    font-family: fantasy;
+    border: 2px dashed #db7c26;
+    margin-top: 30px;
+    margin-left: 48%;
+    padding: 10px;
+
+}
+
+.leaderboard {
+    font-family: fantasy;
+    font-size: 26px;
+    color: #f7b538;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.pastPlayers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    color: #f7b538;
+    font-family: fantasy;
+    font-size: 20px;
+}
+
 
 .hide {
 
@@ -153,4 +183,11 @@ body {
     color: #f7b538;
     cursor: pointer;
     border: 2px dashed #f7b538;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: #f7b538;
+    color: #780116;
+    border: 2px solid #db7c26;
 }
