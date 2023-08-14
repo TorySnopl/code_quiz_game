@@ -14,6 +14,7 @@ let finalScreen =document.querySelector('.finalscreen');
 let score = 0;
 let questionCount = 0;
 
+console.log(feedback);
 
 timerEl.classList.add('hide');
 scoreEl.classList.add('hide');
@@ -62,19 +63,9 @@ function newQuestion(){
 
     questionCount++;
 
-    quizBoard.addEventListener('click', function(event){
-        let userChoice = event.target.value;
-        
-        if (userChoice == question[questionCount].c){
-            score ++;
-            scoreEl.textContent = score;
-            localStorage.setItem('score', score);
-
-        }
-        newQuestion();
-    })
-
+   
 };  
+
 
 function quizStart(){
 
@@ -93,10 +84,30 @@ function quizStart(){
 
         if (seconds === 0){
             clearInterval(timerInterval);
+            quizBoard.classList.add('hide');
+            feedback.classList.add('hide')
+            timerEl.classList.add('hide');
+            scoreEl.classList.add('hide');
+            finalScreen.classList.remove('hide');
         }
     }, 1000);
 
-    
+    quizBoard.addEventListener('click', function(event){
+        let userChoice = event.target.value;
+        
+        if (userChoice == questions[questionCount].c){
+            score ++;
+            scoreEl.textContent = score;
+            localStorage.setItem('score', score);
+            feedback.textContent = ('You Got It!');
+            newQuestion();
+        } else {
+            seconds --;
+            feedback.textContent = ('Maybe Next Time!');
+            newQuestion();
+        }
+       
+    });  
 
 
 };
