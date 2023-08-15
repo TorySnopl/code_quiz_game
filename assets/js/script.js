@@ -17,6 +17,7 @@ let saveBtn = document.querySelector('.submit');
 let pastName = document.querySelector('.pastName');
 let pastScore = document.querySelector('.pastScore');
 
+//initialize variables
 let score = 0;
 let questionCount = 0;
 let seconds = 20;
@@ -25,7 +26,7 @@ let timerInterval = '';
 localStorage.setItem('name', nameInput) || "";
 localStorage.setItem('saveScore', score) || 0;
 
-
+//function to reset quiz on replay
 function resetQuiz(){
 
 score = 0;
@@ -44,7 +45,7 @@ scoreEl.classList.add('hide');
 quizBoard.classList.add('hide');
 finalScreen.classList.add('hide');
 
-
+//opens quiz when start button is clicked
 startBtn.addEventListener('click', function(){
     resetQuiz();
     quizStart();
@@ -52,7 +53,7 @@ startBtn.addEventListener('click', function(){
 
 
 
-
+//question array
 const questions = [
     {ask: 'What does Var stand for?', 
     a: ['Variable', 'very difficult', 'varied', 'victory',],
@@ -78,7 +79,7 @@ const questions = [
     c:1}
 ];
 
-
+//picks new question from array
 function newQuestion(){
     question.textContent = questions[questionCount].ask;
 
@@ -88,7 +89,7 @@ function newQuestion(){
     choiceFour.textContent = questions[questionCount].a[3];
 };  
 
-
+// starts timer and runs new question function
 function quizStart(){
     
 
@@ -117,11 +118,11 @@ function quizStart(){
 
    
 };
-
+// takes users answer and compares it to the correct index;
 quizBoard.addEventListener('click', function(event){
     let userChoice = event.target.textContent.trim();
     let correctIndex = questions[questionCount].c;
-    console.log(event)
+    
         
     
     
@@ -137,7 +138,6 @@ quizBoard.addEventListener('click', function(event){
 
     questionCount = questionCount + 1;
 
-    console.log(questionCount)
     if (questionCount<questions.length){
         newQuestion();
     } else {
@@ -153,6 +153,7 @@ quizBoard.addEventListener('click', function(event){
    
 });  
 
+// saves name and score to high score
 saveBtn.addEventListener('click', function(){
     localStorage.setItem('name', nameInput.value);
     localStorage.setItem('saveScore', score)
