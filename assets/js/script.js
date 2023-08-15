@@ -155,6 +155,8 @@ quizBoard.addEventListener('click', function(event){
 
 // saves name and score to high score
 saveBtn.addEventListener('click', function(){
+    
+    
     localStorage.setItem('name', nameInput.value);
     localStorage.setItem('saveScore', score)
     pastName.innerHTML = localStorage.getItem('name');
