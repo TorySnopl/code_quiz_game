@@ -19,6 +19,8 @@ let pastScore = document.querySelector('.pastScore');
 
 let score = 0;
 let questionCount = 0;
+let seconds = 20;
+let timerInterval = '';
 
 localStorage.setItem('name', nameInput) || "";
 localStorage.setItem('saveScore', score) || 0;
@@ -98,8 +100,8 @@ function quizStart(){
     scoreEl.classList.remove('hide');
     quizBoard.classList.remove('hide');
 
-    let seconds = 20;
-    let timerInterval = setInterval(() => {
+     seconds = 20;
+     timerInterval = setInterval(() => {
         seconds--;
         timerEl.textContent = seconds;
 
@@ -113,60 +115,57 @@ function quizStart(){
         }
     }, 1000);
 
-    quizBoard.addEventListener('click', function(event){
-        let userChoice = event.target.textContent.trim();
-        let correctIndex = questions[questionCount].c;
-
-            
-        
-        
-        if (userChoice == questions[questionCount].a[correctIndex]){
-            score ++;
-            scoreEl.textContent = score;
-            feedback.textContent = ('You Got It!');
-            
-        } else {
-            seconds --;
-            feedback.textContent = ('Maybe Next Time!');
-        }
-
-        questionCount = questionCount + 1;
-
-        console.log(questionCount)
-        if (questionCount<questions.length){
-            newQuestion();
-        } else {
-            clearInterval(timerInterval);
-            quizBoard.classList.add('hide');
-            feedback.classList.add('hide')
-            timerEl.classList.add('hide');
-            scoreEl.classList.add('hide');
-            finalScreen.classList.remove('hide');
-            finalScore.textContent = score;
-            
-        }
-       
-    });  
-
-    saveBtn.addEventListener('click', function(){
-        localStorage.setItem('name', nameInput.value);
-        localStorage.setItem('saveScore', score)
-        pastName.innerHTML = localStorage.getItem('name');
-        pastScore.textContent = localStorage.getItem('saveScore');
-        questionCount = 0;
-        score = 0;
-        finalScreen.classList.add ('hide');
-        startScreen.classList.remove('hide');
-        startBtn.classList.remove('hide');
-
-        
-    });
-
- 
-
-
+   
 };
 
+quizBoard.addEventListener('click', function(event){
+    let userChoice = event.target.textContent.trim();
+    let correctIndex = questions[questionCount].c;
+    console.log(event)
+        
+    
+    
+    if (userChoice == questions[questionCount].a[correctIndex]){
+        score ++;
+        scoreEl.textContent = score;
+        feedback.textContent = ('You Got It!');
+        
+    } else {
+        seconds --;
+        feedback.textContent = ('Maybe Next Time!');
+    }
+
+    questionCount = questionCount + 1;
+
+    console.log(questionCount)
+    if (questionCount<questions.length){
+        newQuestion();
+    } else {
+        clearInterval(timerInterval);
+        quizBoard.classList.add('hide');
+        feedback.classList.add('hide')
+        timerEl.classList.add('hide');
+        scoreEl.classList.add('hide');
+        finalScreen.classList.remove('hide');
+        finalScore.textContent = score;
+        
+    }
+   
+});  
+
+saveBtn.addEventListener('click', function(){
+    localStorage.setItem('name', nameInput.value);
+    localStorage.setItem('saveScore', score)
+    pastName.innerHTML = localStorage.getItem('name');
+    pastScore.textContent = localStorage.getItem('saveScore');
+    questionCount = 0;
+    score = 0;
+    finalScreen.classList.add ('hide');
+    startScreen.classList.remove('hide');
+    startBtn.classList.remove('hide');
+
+    
+});
     
   
 
