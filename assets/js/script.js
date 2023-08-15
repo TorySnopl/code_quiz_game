@@ -13,9 +13,26 @@ let feedback = document.querySelector('.result');
 let finalScreen =document.querySelector('.finalscreen');
 let nameInput = document.querySelector ('.name');
 let finalScore = document.querySelector('.finalScore');
+let saveBtn = document.querySelector('.submit');
+let pastName = document.querySelector('.pastName');
+let pastScore = document.querySelector('.pastScore');
 
 let score = 0;
 let questionCount = 0;
+
+localStorage.setItem('name', nameInput) || "";
+localStorage.setItem('saveScore', score) || 0;
+
+
+function resetQuiz(){
+
+score = 0;
+questionCount = 0;
+console.log(questionCount)
+feedback.textContent ="";
+localStorage.removeItem('name');
+localStorage.removeItem('saveScore');
+};
 
 
 
@@ -26,7 +43,10 @@ quizBoard.classList.add('hide');
 finalScreen.classList.add('hide');
 
 
-startBtn.addEventListener('click', quizStart);
+startBtn.addEventListener('click', function(){
+    resetQuiz();
+    quizStart();
+});
 
 
 
@@ -97,8 +117,7 @@ function quizStart(){
         let userChoice = event.target.textContent.trim();
         let correctIndex = questions[questionCount].c;
 
-            console.log(userChoice)
-            console.log(correctIndex)
+            
         
         
         if (userChoice == questions[questionCount].a[correctIndex]){
@@ -111,8 +130,9 @@ function quizStart(){
             feedback.textContent = ('Maybe Next Time!');
         }
 
-        questionCount++;
+        questionCount = questionCount + 1;
 
+        console.log(questionCount)
         if (questionCount<questions.length){
             newQuestion();
         } else {
@@ -127,6 +147,22 @@ function quizStart(){
         }
        
     });  
+
+    saveBtn.addEventListener('click', function(){
+        localStorage.setItem('name', nameInput.value);
+        localStorage.setItem('saveScore', score)
+        pastName.innerHTML = localStorage.getItem('name');
+        pastScore.textContent = localStorage.getItem('saveScore');
+        questionCount = 0;
+        score = 0;
+        finalScreen.classList.add ('hide');
+        startScreen.classList.remove('hide');
+        startBtn.classList.remove('hide');
+
+        
+    });
+
+ 
 
 
 };
