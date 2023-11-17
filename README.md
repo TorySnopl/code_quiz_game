@@ -32,6 +32,11 @@ The high score screen uses the `localStorage` to store the current score and and
 
 I found the `classList.add()` and `.remove()` particularly helpful in conjuction with the hide class in my css. It made transitions between screens easy. I also learned more about calling properties of objects in an array. Particularly in combining the correct index number from the `questions.c` in a variable and then comparing it with the user choice in the if/else statement.
 
+## Screenshots
+![question](./assets/images/question.jpg)
+
+![highscore](./assets/images/highscore.jpg)
+
 ## Deployed Application
 [Code Quiz Game](https://torysnopl.github.io/code_quiz_game/)
 
