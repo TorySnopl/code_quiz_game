@@ -35,7 +35,7 @@ I found the `classList.add()` and `.remove()` particularly helpful in conjuction
 ## Screenshots
 ![question](./assets/images/question.jpg)
 
-![highscore](./assets/images/highscore.jpg)
+![highscore](./assets/images/highscore.jpg)``
 
 ## Deployed Application
 [Code Quiz Game](https://torysnopl.github.io/code_quiz_game/)

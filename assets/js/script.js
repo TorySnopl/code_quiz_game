@@ -23,8 +23,8 @@ let questionCount = 0;
 let seconds = 20;
 let timerInterval = '';
 
-localStorage.setItem('name', nameInput) || "";
-localStorage.setItem('saveScore', score) || 0;
+localStorage.setItem('name', localStorage.getItem('name')) || "";
+localStorage.setItem('saveScore', localStorage.getItem('saveScore')) || 0;
 
 //function to reset quiz on replay
 function resetQuiz(){
@@ -158,7 +158,7 @@ saveBtn.addEventListener('click', function(){
     
     
     localStorage.setItem('name', nameInput.value);
-    localStorage.setItem('saveScore', score)
+    localStorage.setItem('saveScore', score.toString());
     pastName.innerHTML = localStorage.getItem('name');
     pastScore.textContent = localStorage.getItem('saveScore');
     questionCount = 0;
